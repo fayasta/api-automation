@@ -1,0 +1,67 @@
+{
+    "claimNumber": null,
+    "labId": "ATL1001",
+    "labClinicId": "NC93606",
+    "caseType": "benefits_investigation",
+    "createdAt": null,
+    "postServiceReview": false,
+    "patient": {
+        "patientId": "XC4321",
+        "firstName": "Holly",
+        "middleName": "",
+        "lastName": "Buckel",
+        "gender": "F",
+        "phoneNumber": "555-555-5555",
+        "dob": "1993-06-02",
+        "street": "123 Street Ave",
+        "street2": "Apt B",
+        "city": "Cupertino",
+        "state": "CA",
+        "zip": "95014"
+    },
+    "provider": {
+        "externalProviderId": "",
+        "practiceName": "Holly's Clinic",
+        "firstName": "Doctor",
+        "lastName": "Buckel",
+        "npi": "333222111",
+        "phoneNumber": "(111) 123-4567",
+        "faxNumber": "(123) 7654-321"
+    },
+    "test": {
+        "testNames": [
+            ""
+        ],
+        "cptCodes": [
+            "0019U"
+        ],
+        "testIdentifiers": [
+            "BRACA Test"
+        ],
+        "testType": ""
+    },
+    "primaryInsurance": {
+        "insuranceName": "United Healthcare",
+        "publicId": null,
+        "groupId": "618939",
+        "planId": "PL",
+        "memberId": "959075736"
+    },
+    "labOrder": {
+        "labOrderId": "123321",
+        "collectionType": "blood",
+        "collectionDate": "",
+        "serviceDate": "",
+        "accessionDate": "2021-01-01T12:00:00Z",
+        "icd10Codes": [
+            "z34"
+        ]
+    },
+    "supplementalDocuments": [
+        {
+            "fileName": "file.pdf",
+            "mimeType": "application/pdf",
+            "bytes": "..."
+        }
+    ]
+}

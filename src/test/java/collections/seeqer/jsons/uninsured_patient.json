@@ -1,0 +1,67 @@
+{
+    "claimNumber": null,
+    "labId": "Emard-Witting",
+    "labClinicId": "NC93606",
+    "caseType": "benefits_investigation",
+    "createdAt": null,
+    "postServiceReview": false,
+    "patient": {
+        "patientId": "123",
+        "firstName": "Holly",
+        "middleName": "",
+        "lastName": "Buckel",
+        "gender": "F",
+        "phoneNumber": "555-555-5555",
+        "dob": "1993-06-02",
+        "street": "123 Street Ave",
+        "street2": "Apt B",
+        "city": "Cupertino",
+        "state": "CA",
+        "zip": "95014"
+    },
+    "provider": {
+        "externalProviderId": "",
+        "practiceName": "Holly's Clinic",
+        "firstName": "Doctor",
+        "lastName": "Buckel",
+        "npi": "333222111",
+        "phoneNumber": "(111) 123-4567",
+        "faxNumber": "(123) 7654-321"
+    },
+    "test": {
+        "testNames": [
+            ""
+        ],
+        "cptCodes": [
+            "81220"
+        ],
+        "testIdentifiers": [
+            "IPS"
+        ],
+        "testType": "test type"
+    },
+    "primaryInsurance": {
+        "insuranceName": "Uninsured Patient",
+        "publicId": null,
+        "groupId": "618939",
+        "planId": "PL",
+        "memberId": ""
+    },
+    "labOrder": {
+        "labOrderId": "XK",
+        "collectionType": "blood",
+        "collectionDate": "",
+        "serviceDate": "",
+        "accessionDate": "2021-01-01T12:00:00Z",
+        "icd10Codes": [
+            "z34"
+        ]
+    },
+    "supplementalDocuments": [
+        {
+            "fileName": "file.pdf",
+            "mimeType": "application/pdf",
+            "bytes": "..."
+        }
+    ]
+}
