@@ -1,10 +1,7 @@
-Feature: Repeat -  Get Cases
-
-Background:
-    Given url base_url
+Feature: Repeat Features
 
 @repeat-scenarios    
-Scenario Outline: Get Cases
+Scenario Outline: Repeat Features
     * def repeat_scenario = function(i){ return karate.call("classpath:collections/"+<featureFileName>) }
     * def repeat_scenario_result = karate.repeat(repeat_number, repeat_scenario ) 
     Examples:
