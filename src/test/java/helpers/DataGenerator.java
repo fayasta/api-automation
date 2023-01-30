@@ -1,6 +1,11 @@
 package helpers;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import com.github.javafaker.Faker;
 import net.minidev.json.JSONObject;
@@ -31,10 +36,11 @@ public class DataGenerator {
     }
 
     public static String getRandomDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
         Faker faker = new Faker();
-        String date = sdf.format(faker.date().past(1, TimeUnit.DAYS));
-        return date;
+        String nowAsISO = df.format(faker.date().past(2,1, TimeUnit.DAYS));
+        //in case we need to send a date before current date - change to: yyyy-MM-dd'T'00:00:00.000-00:00'Z'"
+        return nowAsISO;
     }
 
     public static int getRandomLaborOrderId(){
