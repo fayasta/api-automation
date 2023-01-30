@@ -6,7 +6,8 @@ function fn() {
   }
 
   var config = {
-    base_url: 'https://api-ci.careviso.com/'
+    base_url: 'https://api-ci.careviso.com/',
+    repeat_number : parseInt(karate.properties['karate.repeat_number']) || 10
   }
 
   if (env == 'dev') {
@@ -20,6 +21,7 @@ function fn() {
     config.token = 'xxxxxxx'
     config.clinicId = 'xxxxxxx'
   }
+  karate.log('karate property system property was:', karate.properties);
 
   karate.configure('headers',{Authorization: 'Bearer '+ config.token})
 
