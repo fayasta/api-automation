@@ -13,7 +13,7 @@ Scenario: Post - PA Request - PVerify - HELD
     And request pverify_held_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def held_case_id = respose.caseId
+    * def held_case_id = response.caseId
     * eval sleep(5000)
     Given path 'api/v2/cases/' + held_case_id
     When method Get

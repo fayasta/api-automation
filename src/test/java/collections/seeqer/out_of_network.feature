@@ -13,7 +13,7 @@ Scenario: Post SeeQer Out of Network
     And request seeqer_out_of_network_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def out_of_network_case_id = respose.caseId
+    * def out_of_network_case_id = response.caseId
     * eval sleep(10000)
     Given path 'api/v2/cases/' + out_of_network_case_id
     When method Get

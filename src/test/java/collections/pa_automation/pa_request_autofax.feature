@@ -13,7 +13,7 @@ Scenario: Post - PA Request - Autofax
     And request pa_request_autofax_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def pa_request_autofax_case_id = respose.caseId
+    * def pa_request_autofax_case_id = response.caseId
     * eval sleep(3000)
     Given path 'api/v2/cases/' + pa_request_autofax_case_id
     When method Get

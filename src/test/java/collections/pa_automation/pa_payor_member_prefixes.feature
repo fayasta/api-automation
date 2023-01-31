@@ -13,7 +13,7 @@ Scenario: Post - PA Request - Payor Member Prefixes
     And request pa_payor_member_prefixes_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def pa_payor_member_prefixes_case_id = respose.caseId
+    * def pa_payor_member_prefixes_case_id = response.caseId
     * eval sleep(5000)
     Given path 'api/v2/cases/' + pa_payor_member_prefixes_case_id
     When method Get

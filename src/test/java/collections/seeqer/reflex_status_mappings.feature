@@ -13,7 +13,7 @@ Scenario: Post Reflex Status Mappings
     And request seeqer_reflex_status_mappings_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def SQ_caseId_ReflexStatusMapping = respose.caseId
+    * def SQ_caseId_ReflexStatusMapping = response.caseId
     * eval sleep(5000)
     Given path 'api/v2/cases/' + SQ_caseId_ReflexStatusMapping
     When method Get

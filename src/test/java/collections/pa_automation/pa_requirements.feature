@@ -13,7 +13,7 @@ Scenario: Post - PA Request - Requirements
     And request pa_requirement_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def pa_requirement_case_id = respose.caseId
+    * def pa_requirement_case_id = response.caseId
     * eval sleep(3000)
     Given path 'api/v2/cases/' + pa_requirement_case_id
     When method Get

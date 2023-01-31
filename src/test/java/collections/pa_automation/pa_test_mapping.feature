@@ -13,7 +13,7 @@ Scenario: Post - PA Request - Test Mapping
     And request pa_test_mapping_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def pa_test_mapping_case_id = respose.caseId
+    * def pa_test_mapping_case_id = response.caseId
     * eval sleep(5000)
     Given path 'api/v2/cases/' + pa_test_mapping_case_id
     When method Get

@@ -13,7 +13,7 @@ Scenario: Post - Payor Auto Approval
     And request payor_auto_approval_body
     When method Post
     Then assert responseStatus == 200 || responseStatus == 201
-    * def payor_auto_approval_case_id = respose.caseId
+    * def payor_auto_approval_case_id = response.caseId
     * eval sleep(5000)
     Given path 'api/v2/cases/' + payor_auto_approval_case_id
     When method Get
