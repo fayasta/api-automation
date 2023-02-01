@@ -16,3 +16,13 @@ Background:
         Given path 'api/v2/cases/' + caseId +'/attachments/supplemental_docs/' + caseAttachment
         When method Get
         Then status 200
+        And match response ==
+        """
+            {
+                "fileName":"#string",
+                "mimeType":"#string",
+                "link":"#string",
+                "type":"#string",
+                "bytes":"#string",
+            }
+        """
