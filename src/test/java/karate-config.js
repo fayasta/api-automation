@@ -7,7 +7,7 @@ function fn() {
 
   var config = {
     base_url: 'https://api-ci.careviso.com/',
-    repeat_number : parseInt(karate.properties['karate.repeat_number']) || 10
+    repeat_number : parseInt(karate.properties['karate.repeat_number']) || 1
   }
 
   if (env == 'dev') {

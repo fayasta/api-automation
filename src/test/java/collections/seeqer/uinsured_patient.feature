@@ -7,15 +7,16 @@ Background: Base Url
     * set seeqer_uninsured_patient_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set seeqer_uninsured_patient_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-Scenario: Post SeeQer Uninsured Patient
-    * def sleep = function(pause){java.lang.Thread.sleep(pause)}
-    Given path 'api/v2/cases'
-    And request seeqer_uninsured_patient_body
-    When method Post
-    Then assert responseStatus == 200 || responseStatus == 201
-    * def uninsuredCaseId = response.caseId
-    * eval sleep(2000)
-    Given path 'api/v2/cases/' + uninsuredCaseId
-    When method Get
-    Then assert responseStatus == 200 || responseStatus == 201
-# ToDo add additional Asserts
+    @regression
+    Scenario: Post SeeQer Uninsured Patient
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        Given path 'api/v2/cases'
+        And request seeqer_uninsured_patient_body
+        When method Post
+        Then assert responseStatus == 200 || responseStatus == 201
+        * def uninsuredCaseId = response.caseId
+        * eval sleep(2000)
+        Given path 'api/v2/cases/' + uninsuredCaseId
+        When method Get
+        Then assert responseStatus == 200 || responseStatus == 201
+    # ToDo add additional Asserts
