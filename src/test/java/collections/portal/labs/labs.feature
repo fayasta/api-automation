@@ -3,7 +3,7 @@ Feature: Labs
 Background:
     Given url base_url
 
-    @regression
+    @regression @portal @labs
     Scenario: Get Lab
       * def labId = labId
       Given path 'api/v2/labs/' + labId

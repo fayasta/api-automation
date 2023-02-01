@@ -9,7 +9,7 @@ Background:
       When method Get
       Then status 200
 
-    @regression
+    @regression @portal @clinic
     Scenario: Get Clinic CY10000 //ToDo - Assertions
         * def clinicId = clinicId
         Given path 'api/v2/clinics/' + clinicId
