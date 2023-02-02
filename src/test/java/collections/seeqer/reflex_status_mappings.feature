@@ -66,7 +66,7 @@ Background: Base Url
                     "optumTestNames":"#array",
                     "testIdentifiers":"#array",
                     "cptCodes":"#array",
-                    "testType":""
+                    "testType":"#string"
                 },
                 "primaryInsurance":{
                     "insuranceName":"#string",
