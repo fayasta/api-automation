@@ -21,7 +21,5 @@ Background: Base Url
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.closed == true
-        And match response contains "closed"
-        And match response contains "closed"
-        #Ademas de ser incorrecto, por que necesitas validar dos veces el closed? en Active Coverage: True & Status: Closed
-        And match response contains "$383.92"
+        And match response.associatedCases[0].type == "relates_to"
+        And match response.associatedCases[0].type == "#string"

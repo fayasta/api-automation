@@ -20,6 +20,5 @@ Background: Base Url
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.closed == true
-        And match response contains "closed"
         And match response contains "Uninsured Patient"
         And match response contains "$5.00"

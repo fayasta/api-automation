@@ -23,78 +23,87 @@ Background: Base Url
         Then assert responseStatus == 200 || responseStatus == 201
         And match response ==
         """
-            {
-                "caseId":"#string",
-                "caseType":"#string",
-                "source":"#string",
-                "associatedCases":"#array",
-                "closed":"#boolea",
-                "labId":"#string",
-                "labName":"#string",
-                "labClinicId":"#string",
-                "createdAt":"# timeValidatorRegex2(_)",
-                "postServiceReview":false,
-                "patient":{
-                    "patientId":"#string",
-                    "firstName":"#string",
-                    "middleName":"#?string",
-                    "lastName":"#string",
-                    "gender":"#string",
-                    "phoneNumber":"#string",
-                    "dob":"# timeValidatorRegex1(_)",
-                    "street":"#string",
-                    "street2":"#string",
-                    "city":"#string",
-                    "state":"#string",
-                    "zip":"#string"
-                },
-                "provider":{
-                    "externalProviderId":"#?string",
-                    "practiceName":"#string",
-                    "firstName":"#string",
-                    "lastName":"#string",
-                    "npi":"#string",
-                    "phoneNumber":"#string",
-                    "faxNumber":"#string"
-                },
-                "clinic":{
-                    "clinicId":"#string",
-                    "clinicName":"#string"
-                },
-                "test":{
-                    "testNames":"#array",
-                    "optumTestNames":"#array",
-                    "testIdentifiers":"#array",
-                    "cptCodes":"#array",
-                    "testType":"#string"
-                },
-                "primaryInsurance":{
-                    "insuranceName":"#string",
-                    "groupId":"#string",
-                    "planId":"#string",
-                    "memberId":"#string"
-                },
-                "labOrder":{
-                    "labOrderId":"#string",
-                    "collectionType":"#string",
-                    "collectionDate":"# timeValidatorRegex1(_)",
-                    "serviceDate":"# timeValidatorRegex2(_)",
-                    "accessionDate":"# timeValidatorRegex2(_)",
-                    "icd10Codes":"#array"
-                },
-                "supplementalDocuments":"#array",
-                "attachments":"#array",
-                "results":{
-                    "status":"#string",
-                    "verifiedInsurance":{
-                        "insuranceId":"#string",
+                {
+                    "caseId":"#string",
+                    "caseType":"#string",
+                    "source":"#string",
+                    "associatedCases":"#array",
+                    "closed":"#boolea",
+                    "labId":"#string",
+                    "labName":"#string",
+                    "labClinicId":"#string",
+                    "notes":"##string",
+                    "createdAt":"# timeValidatorRegex2(_)",
+                    "postServiceReview":false,
+                    "patient":{
+                        "patientId":"#string",
+                        "firstName":"#string",
+                        "middleName":"#?string",
+                        "lastName":"#string",
+                        "gender":"#string",
+                        "phoneNumber":"#string",
+                        "dob":"# timeValidatorRegex1(_)",
+                        "street":"#string",
+                        "street2":"#string",
+                        "city":"#string",
+                        "state":"#string",
+                        "zip":"#string"
+                    },
+                    "provider":{
+                        "externalProviderId":"#?string",
+                        "practiceName":"#string",
+                        "firstName":"#string",
+                        "lastName":"#string",
+                        "npi":"#string",
+                        "phoneNumber":"#string",
+                        "faxNumber":"#string"
+                    },
+                    "clinic":{
+                        "clinicId":"#string",
+                        "clinicName":"#string"
+                    },
+                    "test":{
+                        "testNames":"#array",
+                        "optumTestNames":"#array",
+                        "testIdentifiers":"#array",
+                        "cptCodes":"#array",
+                        "testType":"#string"
+                    },
+                    "primaryInsurance":{
                         "insuranceName":"#string",
+                        "groupId":"#string",
+                        "planId":"#string",
                         "memberId":"#string"
                     },
-                    "coverageActive":"#boolean",
-                    "cptCodeDetails":"#array"
+                    "labOrder":{
+                        "labOrderId":"#string",
+                        "collectionType":"#string",
+                        "collectionDate":"# timeValidatorRegex1(_)",
+                        "serviceDate":"# timeValidatorRegex2(_)",
+                        "accessionDate":"# timeValidatorRegex2(_)",
+                        "icd10Codes":"#array"
+                    },
+                    "supplementalDocuments":"#array",
+                    "attachments":"#array",
+                    "results":{
+                        "status":"#string",
+                        "verifiedInsurance":{
+                            "insuranceId":"#string",
+                            "insuranceName":"#string",
+                            "memberId":"#string"
+                        },
+                        "coverageActive":"#boolean",
+                        "copay":"#string",
+                        "coinsurance":"#number",
+                        "effectiveDate":"#string",
+                        "inNetwork":"#boolean",
+                        "paRequired":"#boolean",
+                        "maxOutOfPocketRemaining":"#string",
+                        "deductibleRemaining":"#string",
+                        "cptCodeDetails":"#array",
+                        "estimatedTotalPatientResponsibility":"#string"
+                        }
                     }
-                }
         """
         And match response.caseId !contains ""
         And match response.associatedCases == "#[0]"
