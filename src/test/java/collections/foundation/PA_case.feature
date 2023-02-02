@@ -7,7 +7,7 @@ Background:
     * set pa_case_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set pa_case_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @regression @foundation @pa_case
     Scenario: Post PA Case
       Given path 'api/v2/cases'
       And request pa_case_body
