@@ -18,8 +18,12 @@ function fn() {
     config.labId = 'ATL1001'
     config.caseAttachment = 'bk04lv7q4'
   } else if (env == 'qa') {
-    config.token = 'xxxxxxx'
-    config.clinicId = 'xxxxxxx'
+    config.base_url = "https://api-qa-ci.careviso.com/"
+    config.clinicId = 'qa_value'
+    config.insuranceId = 'qa_value'
+    config.caseId = 'qa_value'
+    config.labId = 'qa_value'
+    config.caseAttachment = 'qa_value'
   }
   karate.log('karate property system property was:', karate.properties);
 
