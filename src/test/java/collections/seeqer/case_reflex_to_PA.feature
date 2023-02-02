@@ -20,4 +20,8 @@ Background: Base Url
         Given path 'api/v2/cases/' + SQ_caseId_PA_caseReflex
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
-    # ToDo add additional Asserts
+        And match response.closed == true
+        And match response contains "closed"
+        And match response contains "closed"
+        #Ademas de ser incorrecto, por que necesitas validar dos veces el closed? en Active Coverage: True & Status: Closed
+        And match response contains "$383.92"

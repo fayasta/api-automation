@@ -19,4 +19,8 @@ Background: Base Url
         Given path 'api/v2/cases/' + out_of_network_case_id
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
-    # ToDo add additional Asserts
+        And match response.closed == true
+        And match response contains "closed"
+        And match response contains "closed"
+        #Ademas de ser incorrecto, por que necesitas validar dos veces el closed? en Status: Closed & Active Coverage: True
+        And match response contains "$3.13"
