@@ -34,7 +34,7 @@ Background: Base Url
                     "labName":"#string",
                     "labClinicId":"#string",
                     "notes":"##string",
-                    "createdAt":"# timeValidatorRegex3(_)",
+                    "createdAt":"#string",
                     "postServiceReview":false,
                     "patient":{
                         "patientId":"#string",
@@ -43,7 +43,7 @@ Background: Base Url
                         "lastName":"#string",
                         "gender":"#string",
                         "phoneNumber":"#string",
-                        "dob":"# timeValidatorRegex1(_)",
+                        "dob":"string",
                         "street":"#string",
                         "street2":"#string",
                         "city":"#string",
@@ -79,9 +79,9 @@ Background: Base Url
                     "labOrder":{
                         "labOrderId":"#string",
                         "collectionType":"#string",
-                        "collectionDate":"# timeValidatorRegex1(_)",
-                        "serviceDate":"# timeValidatorRegex2(_)",
-                        "accessionDate":"# timeValidatorRegex2(_)",
+                        "collectionDate":"#string",
+                        "serviceDate":"#string",
+                        "accessionDate":"#string",
                         "icd10Codes":"#array"
                     },
                     "supplementalDocuments":"#array",
