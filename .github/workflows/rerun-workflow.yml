@@ -32,7 +32,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run:  mvn test -Dkarate.repeat_number={{ github.event.inputs.repeat }} "-Dkarate.options=--tags @repeat" --file pom.xml
+      run:  mvn test -Dkarate.repeat_number=${{ github.event.inputs.repeat }} "-Dkarate.options=--tags @repeat" --file pom.xml
     - name: Karate results
       if: always()
       uses: actions/upload-artifact@v3
