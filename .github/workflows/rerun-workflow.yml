@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Workflow Karate - Automated Suite
+name: Workflow Karate - Multiple Runs
 
 on:
   workflow_dispatch:
