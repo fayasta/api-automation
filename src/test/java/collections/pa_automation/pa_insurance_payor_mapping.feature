@@ -12,6 +12,7 @@ Background: Base Url and cofigure json body
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         * def timeValidatorRegex = read('classpath:helpers/JSValidators/DateValidatorFormat1.js')
         * def timeValidatorRegex2 = read('classpath:helpers/JSValidators/DateValidatorFormat2.js')
+        * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
         Given path 'api/v2/cases'
         And request pa_insurance_payor_mapping_body
         When method Post
@@ -33,7 +34,7 @@ Background: Base Url and cofigure json body
             "labName":"#string",
             "labClinicId":"#string",
             "notes":"#string",
-            "createdAt":"# timeValidatorRegex2(_)",
+            "createdAt":"# timeValidatorRegex3(_)",
             "postServiceReview":"#boolean",
             "patient":{
                "patientId":"#string",
