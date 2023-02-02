@@ -19,5 +19,5 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + not_required_case_id
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
-        And match response contains "not_required"
+        And match response.results.status == "not_required"
         And match response.closed == true

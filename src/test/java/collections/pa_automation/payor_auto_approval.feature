@@ -19,5 +19,5 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + payor_auto_approval_case_id
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
-        And match response contains "approved"
+        And match response.results.status == "approved"
         And match response.closed == true

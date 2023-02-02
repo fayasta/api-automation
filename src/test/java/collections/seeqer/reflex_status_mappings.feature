@@ -28,7 +28,7 @@ Background: Base Url
                     "caseType":"#string",
                     "source":"#string",
                     "associatedCases":"#array",
-                    "closed":"#boolea",
+                    "closed":"#boolean",
                     "labId":"#string",
                     "labName":"#string",
                     "labClinicId":"#string",
