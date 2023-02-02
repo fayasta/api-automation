@@ -4,7 +4,7 @@ temporal repo
 
 
 ### Execute command
-1. To run the whole suite: ```mvn test "-Dkarate.options=--tags ~@repeat"``` 
+1. To run the whole suite: ```mvn test "-Dkarate.options=--tags ~@repeat" ``` 
 - The ```"-Dkarate.options=--tags ~@repeat" ``` skips ```@repeat``` feature file. 
 2. To run specific tags: ``` mvn test "-Dkarate.options=--tags @tagName" ```
 3. To run multi tags ``` mvn test "-Dkarate.options=--tags @providers,@cases" ```
