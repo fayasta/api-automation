@@ -21,11 +21,11 @@ Background:
             {
                 "insuranceName":"#string",
                 "insuranceId":"#string",
-                "createdDate":"# timeValidatorRegex(_)",
-                "updatedDate":"# timeValidatorRegex(_)",
+                "createdDate":"#? timeValidatorRegex(_)",
+                "updatedDate":"#? timeValidatorRegex(_)",
                 "aliases":"#array",
                 "active":"#boolean",
-            }s
+            }
         """
         And match response.insuranceName == "United Healthcare"
         And match response.insuranceId == "qm7wys0ag"

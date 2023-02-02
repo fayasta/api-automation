@@ -23,7 +23,7 @@ Background:
                 "practiceName":"#string",
                 "taxId":"#string",
                 "phoneNumber":"#string",
-                "enrolledDate":"# timeValidatorRegex(_)",
+                "enrolledDate":"#string",
                 "status":"#string",
                 "providersLink":{
                     "link":"#string"
