@@ -19,9 +19,9 @@ Background: Base Url
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         * def postResponse = karate.callSingle('classpath:collections/seeqer/uninsured_patient.feature@post-precondition').response
         * def uninsuredCaseId = postResponse.caseId
-        * eval sleep(7000)
         Given path 'api/v2/cases/' + uninsuredCaseId
         When method Get
+        * eval sleep(7000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.closed == true
         And match response.primaryInsurance.insuranceName == "Uninsured Patient"

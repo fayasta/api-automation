@@ -7,17 +7,22 @@ Background: Base Url and cofigure json body
     * set pverify_not_required_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set pverify_not_required_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @post-precondition
     Scenario: Post - PA Request - PVerify - Not Required
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         Given path 'api/v2/cases'
         And request pverify_not_required_body
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
-        * def not_required_case_id = response.caseId
-        * eval sleep(5000)
+
+    @regression @pa_automation @pverify_not_required
+    Scenario: Get - PA Request - PVerify - Not Required
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * def postResponse = karate.callSingle('classpath:collections/pa_automation/pverify_not_required.feature@post-precondition').response
+        * def not_required_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + not_required_case_id
         When method Get
+        * eval sleep(5000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "not_required"
         And match response.closed == true

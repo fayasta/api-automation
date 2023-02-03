@@ -7,16 +7,21 @@ Background: Base Url and cofigure json body
     * set pverify_held_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set pverify_held_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @post-precondition
     Scenario: Post - PA Request - PVerify - HELD 
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         Given path 'api/v2/cases'
         And request pverify_held_body
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
-        * def held_case_id = response.caseId
-        * eval sleep(5000)
+
+    @regression @pa_automation @pverify_held
+    Scenario: Get - PA Request - PVerify - HELD 
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * def postResponse = karate.callSingle('classpath:collections/pa_automation/pverify_held.feature@post-precondition').response
+        * def held_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + held_case_id
         When method Get
+        * eval sleep(5000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "held"
+

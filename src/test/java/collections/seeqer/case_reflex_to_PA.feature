@@ -20,9 +20,9 @@ Background: Base Url
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         * def postResponse = karate.callSingle('classpath:collections/seeqer/case_reflex_to_PA.feature@post-precondition').response
         * def SQ_case_id = postResponse.caseId
-        * eval sleep(10000)
         Given path 'api/v2/cases/' + SQ_case_id
         When method Get
+        * eval sleep(10000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.closed == true
         And match response.associatedCases[0].type == "relates_to"

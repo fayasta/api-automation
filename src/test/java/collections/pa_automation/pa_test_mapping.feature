@@ -22,9 +22,9 @@ Background: Base Url and cofigure json body
       * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
       * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_test_mapping.feature@post-precondition').response
       * def pa_test_mapping_case_id = postResponse.caseId
-      * eval sleep(10000)
       Given path 'api/v2/cases/' + pa_test_mapping_case_id
       When method Get
+      * eval sleep(10000)
       Then assert responseStatus == 200 || responseStatus == 201
       And match response ==
       """

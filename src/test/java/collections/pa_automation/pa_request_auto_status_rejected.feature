@@ -19,9 +19,9 @@ Background: Base Url and cofigure json body
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_request_auto_status_rejected.feature@post-precondition').response
         * def pa_request_auto_rejected_case_id = postResponse.caseId
-        * eval sleep(8000)
         Given path 'api/v2/cases/' + pa_request_auto_rejected_case_id
         When method Get
+        * eval sleep(8000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "rejected"
 

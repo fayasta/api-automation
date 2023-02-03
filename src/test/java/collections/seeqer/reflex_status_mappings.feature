@@ -23,9 +23,9 @@ Background: Base Url
         * def timeValidatorRegex = read('classpath:helpers/JSValidators/DateValidatorFormat1.js')
         * def timeValidatorRegex2 = read('classpath:helpers/JSValidators/DateValidatorFormat2.js')
         * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
-        * eval sleep(10000)
         Given path 'api/v2/cases/' + SQ_caseId_ReflexStatusMapping
         When method Get
+        * eval sleep(10000)
         Then assert responseStatus == 200 || responseStatus == 201
         # And match response ==
         # """
