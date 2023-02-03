@@ -7,17 +7,22 @@ Background: Base Url
     * set seeqer_reflex_status_mappings_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set seeqer_reflex_status_mappings_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @post-precondition
     Scenario: Post Reflex Status Mappings
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
-        * def timeValidatorRegex = read('classpath:helpers/JSValidators/DateValidatorFormat1.js')
-        * def timeValidatorRegex2 = read('classpath:helpers/JSValidators/DateValidatorFormat2.js')
-        * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
+
         Given path 'api/v2/cases'
         And request seeqer_reflex_status_mappings_body
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
-        * def SQ_caseId_ReflexStatusMapping = response.caseId
+        
+    @regression @seeqer @reflex_status_mapping
+    Scenario: Get Reflex Status Mapping
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * def postResponse = karate.callSingle('classpath:collections/seeqer/reflex_status_mappings.feature@post-precondition').response
+        * def SQ_caseId_ReflexStatusMapping = postResponse.caseId
+        * def timeValidatorRegex = read('classpath:helpers/JSValidators/DateValidatorFormat1.js')
+        * def timeValidatorRegex2 = read('classpath:helpers/JSValidators/DateValidatorFormat2.js')
+        * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
         * eval sleep(10000)
         Given path 'api/v2/cases/' + SQ_caseId_ReflexStatusMapping
         When method Get

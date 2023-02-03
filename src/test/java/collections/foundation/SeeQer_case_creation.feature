@@ -8,7 +8,7 @@ Background: Base Url
     * set seeqer_case_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set seeqer_case_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression @foundation @seeqer
+    @regression @foundation @seeqer_case
     Scenario: SeeQer Case Creation - Duplicate SeeQer Case/Results
       Given path 'api/v2/cases'
       And request seeqer_case_body

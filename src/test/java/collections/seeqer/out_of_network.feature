@@ -7,14 +7,18 @@ Background: Base Url
     * set seeqer_out_of_network_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set seeqer_out_of_network_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @post-precondition
     Scenario: Post SeeQer Out of Network
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         Given path 'api/v2/cases'
         And request seeqer_out_of_network_body
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
-        * def out_of_network_case_id = response.caseId
+
+    @regression @seeqer @out_of_network
+    Scenario: Get SeeQer Out of Network
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * def postResponse = karate.callSingle('classpath:collections/seeqer/out_of_network.feature@post-precondition').response
+        * def out_of_network_case_id = postResponse.caseId
         * eval sleep(15000)
         Given path 'api/v2/cases/' + out_of_network_case_id
         When method Get
