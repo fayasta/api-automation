@@ -38,8 +38,8 @@ Background: Base Url and cofigure json body
           "labId":"#string",
           "labName":"#string",
           "labClinicId":"#string",
-          "notes":"#string",
-          "createdAt":"# timeValidatorRegex3(_)",
+          "notes":"##string",
+          "createdAt":"#string",
           "postServiceReview":"#boolean",
           "patient":{
              "patientId":"#string",

@@ -14,7 +14,7 @@ Background: Base Url
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
         
-    @regression @seeqer @reflex_status_mapping
+    @regression @seeqer @uninsured_patient
     Scenario: Get SeeQer Uninsured Patient
         * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         * def postResponse = karate.callSingle('classpath:collections/seeqer/uninsured_patient.feature@post-precondition').response

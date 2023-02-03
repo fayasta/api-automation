@@ -15,6 +15,7 @@ function fn(s) {
   var sdf = new SimpleDateFormat("yyyy-MM-dd")
   try{
       sdf.parse(subDate).time;
+      karate.log('***** valid date string', s);
       return true;
   }catch(e){
       karate.log('***** invalid date string', s);
