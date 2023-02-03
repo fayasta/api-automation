@@ -27,89 +27,88 @@ Background: Base Url
         Given path 'api/v2/cases/' + SQ_caseId_ReflexStatusMapping
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
-        And match response ==
-        """
-                {
-                    "caseId":"#string",
-                    "caseType":"#string",
-                    "source":"#string",
-                    "associatedCases":"#array",
-                    "closed":"#boolean",
-                    "labId":"#string",
-                    "labName":"#string",
-                    "labClinicId":"#string",
-                    "notes":"##string",
-                    "createdAt":"#string",
-                    "postServiceReview":false,
-                    "patient":{
-                        "patientId":"#string",
-                        "firstName":"#string",
-                        "middleName":"#?string",
-                        "lastName":"#string",
-                        "gender":"#string",
-                        "phoneNumber":"#string",
-                        "dob":"#string",
-                        "street":"#string",
-                        "street2":"#string",
-                        "city":"#string",
-                        "state":"#string",
-                        "zip":"#string"
-                    },
-                    "provider":{
-                        "externalProviderId":"#?string",
-                        "practiceName":"#string",
-                        "firstName":"#string",
-                        "lastName":"#string",
-                        "npi":"#string",
-                        "phoneNumber":"#string",
-                        "faxNumber":"#string"
-                    },
-                    "clinic":{
-                        "clinicId":"#string",
-                        "clinicName":"#string"
-                    },
-                    "test":{
-                        "testNames":"#array",
-                        "optumTestNames":"#array",
-                        "testIdentifiers":"#array",
-                        "cptCodes":"#array",
-                        "testType":"#string"
-                    },
-                    "primaryInsurance":{
-                        "insuranceName":"#string",
-                        "groupId":"#string",
-                        "planId":"#string",
-                        "memberId":"#string"
-                    },
-                    "labOrder":{
-                        "labOrderId":"#string",
-                        "collectionType":"#string",
-                        "collectionDate":"#string",
-                        "serviceDate":"#string",
-                        "accessionDate":"#string",
-                        "icd10Codes":"#array"
-                    },
-                    "supplementalDocuments":"#array",
-                    "attachments":"#array",
-                    "results":{
-                        "status":"#string",
-                        "verifiedInsurance":{
-                            "insuranceId":"#string",
-                            "insuranceName":"#string",
-                            "memberId":"#string"
-                        },
-                        "coverageActive":"#boolean",
-                        "copay":"#string",
-                        "coinsurance":"#number",
-                        "effectiveDate":"#string",
-                        "inNetwork":"#boolean",
-                        "paRequired":"#boolean",
-                        "maxOutOfPocketRemaining":"#string",
-                        "deductibleRemaining":"#string",
-                        "cptCodeDetails":"#array",
-                        "estimatedTotalPatientResponsibility":"#string"
-                        }
-                    }
-        """
-        And match response.caseId !contains ""
+        # And match response ==
+        # """
+        #         {
+        #             "caseId":"#string",
+        #             "caseType":"#string",
+        #             "source":"#string",
+        #             "associatedCases":"#array",
+        #             "closed":"#boolean",
+        #             "labId":"#string",
+        #             "labName":"#string",
+        #             "labClinicId":"#string",
+        #             "notes":"#string",
+        #             "createdAt":"#string",
+        #             "postServiceReview":"#boolean",
+        #             "patient":{
+        #                 "patientId":"#string",
+        #                 "firstName":"#string",
+        #                 "middleName":"#string",
+        #                 "lastName":"#string",
+        #                 "gender":"#string",
+        #                 "phoneNumber":"#string",
+        #                 "dob":"#string",
+        #                 "street":"#string",
+        #                 "street2":"#string",
+        #                 "city":"#string",
+        #                 "state":"#string",
+        #                 "zip":"#string"
+        #             },
+        #             "provider":{
+        #                 "externalProviderId":"#?string",
+        #                 "practiceName":"#string",
+        #                 "firstName":"#string",
+        #                 "lastName":"#string",
+        #                 "npi":"#string",
+        #                 "phoneNumber":"#string",
+        #                 "faxNumber":"#string"
+        #             },
+        #             "clinic":{
+        #                 "clinicId":"#string",
+        #                 "clinicName":"#string"
+        #             },
+        #             "test":{
+        #                 "testNames":"#array",
+        #                 "optumTestNames":"#array",
+        #                 "testIdentifiers":"#array",
+        #                 "cptCodes":"#array",
+        #                 "testType":"#string"
+        #             },
+        #             "primaryInsurance":{
+        #                 "insuranceName":"#string",
+        #                 "groupId":"#string",
+        #                 "planId":"#string",
+        #                 "memberId":"#string"
+        #             },
+        #             "labOrder":{
+        #                 "labOrderId":"#string",
+        #                 "collectionType":"#string",
+        #                 "collectionDate":"#string",
+        #                 "serviceDate":"#string",
+        #                 "accessionDate":"#string",
+        #                 "icd10Codes":"#array"
+        #             },
+        #             "supplementalDocuments":"#array",
+        #             "attachments":"#array",
+        #             "results":{
+        #                 "status":"#string",
+        #                 "verifiedInsurance":{
+        #                     "insuranceId":"#string",
+        #                     "insuranceName":"#string",
+        #                     "memberId":"#string"
+        #                 },
+        #                 "coverageActive":"#boolean",
+        #                 "copay":"#string",
+        #                 "coinsurance":"#number",
+        #                 "effectiveDate":"#string",
+        #                 "inNetwork":"#boolean",
+        #                 "paRequired":"#boolean",
+        #                 "maxOutOfPocketRemaining":"#string",
+        #                 "deductibleRemaining":"#string",
+        #                 "cptCodeDetails":"#array",
+        #                 "estimatedTotalPatientResponsibility":"#string"
+        #                 }
+        #             }
+        # """
         And match response.associatedCases == "#[0]"

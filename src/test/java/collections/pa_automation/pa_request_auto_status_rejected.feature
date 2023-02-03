@@ -7,16 +7,21 @@ Background: Base Url and cofigure json body
     * set pa_request_auto_rejected_body.labOrder.collectionDate = dataGenerator.getRandomDate()
     * set pa_request_auto_rejected_body.labOrder.serviceDate = dataGenerator.getRandomDate()
 
-    @regression
+    @post-precondition
     Scenario: Post - PA Request - Auto Status - Rejected
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         Given path 'api/v2/cases'
         And request pa_request_auto_rejected_body
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
-        * def pa_request_auto_rejected_case_id = response.caseId
-        * eval sleep(3000)
+
+    @regression @pa_automation @pa_request_auto_status_rejected
+    Scenario: Get - PA Request - Auto Status - Rejected
+        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_request_auto_status_rejected.feature@post-precondition').response
+        * def pa_request_auto_rejected_case_id = postResponse.caseId
+        * eval sleep(8000)
         Given path 'api/v2/cases/' + pa_request_auto_rejected_case_id
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "rejected"
+
