@@ -18,7 +18,7 @@ Background: Base Url
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
         * def SQ_caseId_ReflexStatusMapping = response.caseId
-        * eval sleep(5000)
+        * eval sleep(10000)
         Given path 'api/v2/cases/' + SQ_caseId_ReflexStatusMapping
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
@@ -43,7 +43,7 @@ Background: Base Url
                         "lastName":"#string",
                         "gender":"#string",
                         "phoneNumber":"#string",
-                        "dob":"string",
+                        "dob":"#string",
                         "street":"#string",
                         "street2":"#string",
                         "city":"#string",

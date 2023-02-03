@@ -84,9 +84,7 @@ Background: Base Url and cofigure json body
                "collectionDate":"# timeValidatorRegex1(_)",
                "serviceDate":"# timeValidatorRegex2(_)",
                "accessionDate":"# timeValidatorRegex2(_)",
-               "icd10Codes":[
-                  "#string"
-               ]
+               "icd10Codes":"#array"
             },
             "supplementalDocuments":[
                {

@@ -2,11 +2,17 @@ package helpers;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.concurrent.TimeUnit;
 import com.github.javafaker.Faker;
 import net.minidev.json.JSONObject;
 
 public class DataGenerator {
+
+    private final static String TIME_ZONE_ID = "America/New_York";
     
     public static String getRandomEmail(){
         Faker faker = new Faker();
@@ -32,11 +38,18 @@ public class DataGenerator {
     }
 
     public static String getRandomDate(){
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
         Faker faker = new Faker();
         String nowAsISO = df.format(faker.date().past(2,1, TimeUnit.DAYS));
-        //in case we need to send a date before current date - change to: yyyy-MM-dd'T'00:00:00.000-00:00'Z'"
-        return nowAsISO;
+        return nowAsISO+getTimeZone(TIME_ZONE_ID); 
+    }
+
+    private static String getTimeZone(String timeZoneId){
+        LocalDateTime dt = LocalDateTime.now();
+        ZoneId zone = ZoneId.of(timeZoneId);
+        ZonedDateTime zdt = dt.atZone(zone);
+        ZoneOffset offset = zdt.getOffset();
+        return offset.toString();
     }
 
     public static int getRandomLaborOrderId(){

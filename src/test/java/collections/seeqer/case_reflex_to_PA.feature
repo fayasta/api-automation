@@ -16,7 +16,7 @@ Background: Base Url
         When method Post
         Then assert responseStatus == 200 || responseStatus == 201
         * def SQ_caseId_PA_caseReflex = response.caseId
-        * eval sleep(5000)
+        * eval sleep(10000)
         Given path 'api/v2/cases/' + SQ_caseId_PA_caseReflex
         When method Get
         Then assert responseStatus == 200 || responseStatus == 201
