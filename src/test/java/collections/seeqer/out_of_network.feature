@@ -16,12 +16,12 @@ Background: Base Url
 
     @regression @seeqer @out_of_network
     Scenario: Get SeeQer Out of Network
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/seeqer/out_of_network.feature@post-precondition').response
         * def out_of_network_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + out_of_network_case_id
+        And retry until response.closed == true
         When method Get
-        * eval sleep(15000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.closed == true
         And match response.results.estimatedTotalPatientResponsibility == "$3.13"

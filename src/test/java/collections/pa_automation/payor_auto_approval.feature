@@ -16,12 +16,12 @@ Background: Base Url and cofigure json body
 
     @regression @pa_automation @payor_auto_approval
     Scenario: Get - Payor Auto Approval
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/pa_automation/payor_auto_approval.feature@post-precondition').response
         * def payor_auto_approval_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + payor_auto_approval_case_id
+        And retry until response.results.status == "approved"
         When method Get
-        * eval sleep(10000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "approved"
         And match response.closed == true

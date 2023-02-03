@@ -16,11 +16,11 @@ Background: Base Url and cofigure json body
         
     @regression @pa_automation @pa_request_autofax
     Scenario: Get - PA Request - Autofax
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_request_autofax.feature@post-precondition').response
         * def pa_request_autofax_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + pa_request_autofax_case_id
+        And retry until response.results.status == "submitted"
         When method Get
-        * eval sleep(10000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "submitted"

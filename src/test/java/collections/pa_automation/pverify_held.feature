@@ -16,12 +16,12 @@ Background: Base Url and cofigure json body
 
     @regression @pa_automation @pverify_held
     Scenario: Get - PA Request - PVerify - HELD 
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/pa_automation/pverify_held.feature@post-precondition').response
         * def held_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + held_case_id
+        And retry until response.results.status == "held"
         When method Get
-        * eval sleep(5000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "held"
 

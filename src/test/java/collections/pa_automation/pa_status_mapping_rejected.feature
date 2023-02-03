@@ -17,15 +17,15 @@ Background: Base Url and cofigure json body
 
     @regression @pa_automation @pa_status_mapping_rejected
     Scenario: Get - PA Request - Status Mapping - Rejected
-      * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+      * configure retry = { count: 4, interval: 5000 }
       * def timeValidatorRegex1 = read('classpath:helpers/JSValidators/DateValidatorFormat1.js')
       * def timeValidatorRegex2 = read('classpath:helpers/JSValidators/DateValidatorFormat2.js')
       * def timeValidatorRegex3 = read('classpath:helpers/JSValidators/DateValidatorFormat3.js')
       * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_status_mapping_rejected.feature@post-precondition').response
       * def pa_status_mapping_rejected_case_id = postResponse.caseId
       Given path 'api/v2/cases/' + pa_status_mapping_rejected_case_id
+      And retry until response.results.status == "rejected"
       When method Get
-      * eval sleep(10000)
       Then assert responseStatus == 200 || responseStatus == 201
       And match response ==
       """

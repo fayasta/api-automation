@@ -16,12 +16,12 @@ Background: Base Url and cofigure json body
 
     @regression @pa_automation @pa_request_auto_status_rejected
     Scenario: Get - PA Request - Auto Status - Rejected
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_request_auto_status_rejected.feature@post-precondition').response
         * def pa_request_auto_rejected_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + pa_request_auto_rejected_case_id
+        And retry until response.results.status == "rejected"
         When method Get
-        * eval sleep(8000)
         Then assert responseStatus == 200 || responseStatus == 201
         And match response.results.status == "rejected"
 
