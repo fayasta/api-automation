@@ -13,7 +13,7 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
   * def primaryInsuranceSchema = ({"insuranceName":"#string","groupId":"#string","planId":"#string","memberId":"#string"})
   * def labOrderSchema = ({"labOrderId":"#string","collectionType":"#string","collectionDate":"#present","serviceDate":"#present","accessionDate":"#string","icd10Codes":"#array"})
   * def verifiedInsuranceSchema = ({"insuranceId":"#string","insuranceName":"#string","memberId":"#string"})
-  * def resultsSchema = ({"status":"#string","verifiedInsurance":"#(verifiedInsuranceSchema)","authorizedCptCodes":"#array"})
+  * def resultsSchema = ({"status":"#string","substatus":"##string","verifiedInsurance":"#(verifiedInsuranceSchema)","authorizedCptCodes":"#array"})
   * def response = __arg
   * match response == 
     """
@@ -30,7 +30,7 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
             "createdAt":"#string",
             "postServiceReview":"#boolean",
             "patient":'#object',
-            "otherClinicalInfo":"#string",
+            "otherClinicalInfo":"##string",
             "provider":'#(providerSchema)',
             "clinic":'#(clinicSchema)',
             "test":'#(testSchema)',

@@ -12,4 +12,4 @@ Background:
       Given path 'api/v2/cases'
       And request pa_case_body
       When method Post
-      Then assert responseStatus == 200
+      Then assert responseStatus == 201

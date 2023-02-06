@@ -40,7 +40,7 @@ public class DataGenerator {
     public static String getRandomDate(){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
         Faker faker = new Faker();
-        String nowAsISO = df.format(faker.date().past(2,1, TimeUnit.DAYS));
+        String nowAsISO = df.format(faker.date().past(4,2, TimeUnit.DAYS));
         return nowAsISO+getTimeZone(TIME_ZONE_ID); 
     }
 

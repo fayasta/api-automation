@@ -29,6 +29,6 @@ Background: Base Url and cofigure json body
       * def validate_schema = call read("classpath:feature_helpers/schema_get_case_id.feature") response
       And match response.results.status == "received"
       And match response.results.verifiedInsurance.insuranceId == "2x7seongi"
-      And match response.results.verifiedInsurance.insuranceName == "CareSource of Ohio"
+      And match response.results.verifiedInsurance.insuranceName == "CareSource of Ohio "
       And match response.results.verifiedInsurance.memberId == "HJK5421232"
       And match karate.toString(response) !contains "error"

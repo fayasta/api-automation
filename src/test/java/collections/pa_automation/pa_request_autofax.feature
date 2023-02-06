@@ -12,7 +12,7 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases'
         And request pa_request_autofax_body
         When method Post
-        Then assert esponseStatus == 201
+        Then assert responseStatus == 201
         
     @regression @pa_automation @pa_request_autofax
     Scenario: Get - PA Request - Autofax
