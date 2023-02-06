@@ -12,6 +12,7 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases'
         And request pverify_mi_no_hcp_enrollment_body
         When method Post
+        Then assert responseStatus == 201
 
     @regression @pa_automation @pverify_mi_no_hcp_enrollment
     Scenario: Get - PA Request - MI: NO HCP Enrollmet
@@ -21,5 +22,5 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + no_hcp_enrollment_case_id
         And retry until response.results.status == "missinginfo"
         When method Get
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 200
         And match response.results.status == "missinginfo"

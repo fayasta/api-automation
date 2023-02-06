@@ -37,5 +37,3 @@ Background:
         And match response.enrolledDate == "2022-02-16"
         And match response.status == "active"
         And match response.providersLink.link == "/api/v2/clinics/CY10000/providers"
-          # Double ## means optional
-          # #? means can be null

@@ -12,7 +12,7 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases'
         And request pa_request_autofax_body
         When method Post
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert esponseStatus == 201
         
     @regression @pa_automation @pa_request_autofax
     Scenario: Get - PA Request - Autofax
@@ -22,5 +22,5 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + pa_request_autofax_case_id
         And retry until response.results.status == "submitted"
         When method Get
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 200
         And match response.results.status == "submitted"

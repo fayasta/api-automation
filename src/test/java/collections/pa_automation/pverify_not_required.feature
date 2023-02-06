@@ -13,7 +13,7 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases'
         And request pverify_not_required_body
         When method Post
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 201
 
     @regression @pa_automation @pverify_not_required
     Scenario: Get - PA Request - PVerify - Not Required
@@ -23,6 +23,6 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + not_required_case_id
         And retry until response.results.status == "not_required"
         When method Get
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 200
         And match response.results.status == "not_required"
         And match response.closed == true

@@ -11,8 +11,11 @@ Background: Base Url
     Scenario: Post SeeQer Out of Network
         Given path 'api/v2/cases'
         And request seeqer_out_of_network_body
+        #**************Positive scenarios**************
+        # In this section we can add:
+        # Status Code verifications, Getting correct values in the response 
         When method Post
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 201
 
     @regression @seeqer @out_of_network
     Scenario: Get SeeQer Out of Network
@@ -22,6 +25,11 @@ Background: Base Url
         Given path 'api/v2/cases/' + out_of_network_case_id
         And retry until response.closed == true
         When method Get
-        Then assert responseStatus == 200 || responseStatus == 201
+        #**************Positive scenarios**************
+        # In this section we can add:
+        # Status Code verifications, Getting correct values in the response 
+        Then assert responseStatus == 200
+        * def validate_schema = call read("classpath:feature_helpers/schema_get_case_id.feature") response
         And match response.closed == true
-        And match response.results.estimatedTotalPatientResponsibility == "$3.13"
+        And match jsonData.results.coverageActive == true
+        And match jsonData.results.estimatedTotalPatientResponsibility == "$323.00" 

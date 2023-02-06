@@ -1,0 +1,26 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run:  mvn test "-Dkarate.options=--tags @regression" --file pom.xml
+    - name: Karate results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: archive-karate-report
+        path: target/cucumber-html-reports/
+        retention-days: 3

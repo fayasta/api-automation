@@ -12,7 +12,7 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases'
         And request pa_request_auto_rejected_body
         When method Post
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 201
 
     @regression @pa_automation @pa_request_auto_status_rejected
     Scenario: Get - PA Request - Auto Status - Rejected
@@ -22,6 +22,6 @@ Background: Base Url and cofigure json body
         Given path 'api/v2/cases/' + pa_request_auto_rejected_case_id
         And retry until response.results.status == "rejected"
         When method Get
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 200
         And match response.results.status == "rejected"
 

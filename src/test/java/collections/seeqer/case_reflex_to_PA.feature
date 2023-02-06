@@ -12,18 +12,25 @@ Background: Base Url
     Scenario: Post Case Reflex to PA
         Given path 'api/v2/cases'
         And request seeqer_case_reflex_to_pa_body
+        #**************Positive scenarios**************
+        # In this section we can add:
+        # Status Code verifications, Getting correct values in the response 
         When method Post
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 201
 
     @regression @seeqer @case_reflex
     Scenario: Get Case Reflex to PA
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+        * configure retry = { count: 4, interval: 5000 }
         * def postResponse = karate.callSingle('classpath:collections/seeqer/case_reflex_to_PA.feature@post-precondition').response
         * def SQ_case_id = postResponse.caseId
         Given path 'api/v2/cases/' + SQ_case_id
+        And retry until response.closed == true
         When method Get
-        * eval sleep(10000)
-        Then assert responseStatus == 200 || responseStatus == 201
+        Then assert responseStatus == 200
+        #**************Positive scenarios**************
+        # In this section we can add:
+        # Status Code verifications, Getting correct values in the response 
+        * def validate_schema = call read("classpath:feature_helpers/schema_get_case_id.feature") response
         And match response.closed == true
         And match response.associatedCases[0].type == "relates_to"
         And match response.associatedCases[0].type == "#string"
