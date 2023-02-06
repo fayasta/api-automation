@@ -16,11 +16,11 @@ Background: Base Url and cofigure json body
 
     @regression @pa_automation @pa_test_mapping
    Scenario: Get - PA Request - Test Mapping
-      * def sleep = function(pause){java.lang.Thread.sleep(pause)}
+      * configure retry = { count: 4, interval: 5000 }
       * def postResponse = karate.callSingle('classpath:collections/pa_automation/pa_test_mapping.feature@post-precondition').response
       * def pa_test_mapping_case_id = postResponse.caseId
-      * eval sleep(10000)
       Given path 'api/v2/cases/' + pa_test_mapping_case_id
+      And retry until response.test.testNames[0] == "NIPT Panorama"
       When method Get
       Then assert responseStatus == 200
       * def validate_schema = call read("classpath:feature_helpers/schema_get_case_id.feature") response

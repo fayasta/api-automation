@@ -9,7 +9,6 @@ Background: Base Url and cofigure json body
 
     @post-precondition
     Scenario: Post - PA Request - PVerify - Not Required
-        * def sleep = function(pause){java.lang.Thread.sleep(pause)}
         Given path 'api/v2/cases'
         And request pverify_not_required_body
         When method Post
