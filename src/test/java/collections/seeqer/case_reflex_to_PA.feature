@@ -5,8 +5,8 @@ Background: Base Url
     * def seeqer_case_reflex_to_pa_body = read('classpath:collections/seeqer/jsons/case_reflex_to_pa.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
     * set seeqer_case_reflex_to_pa_body.labOrder.labOrderId = dataGenerator.getRandomLaborOrderId()
-    * set seeqer_case_reflex_to_pa_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set seeqer_case_reflex_to_pa_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set seeqer_case_reflex_to_pa_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set seeqer_case_reflex_to_pa_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post Case Reflex to PA

@@ -4,8 +4,8 @@ Background: Base Url
     Given url base_url
     * def seeqer_out_of_network_body = read('classpath:collections/seeqer/jsons/out_of_network.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set seeqer_out_of_network_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set seeqer_out_of_network_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set seeqer_out_of_network_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set seeqer_out_of_network_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post SeeQer Out of Network

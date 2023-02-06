@@ -4,8 +4,8 @@ Background: Base Url and cofigure json body
     Given url base_url
     * def payor_auto_approval_body = read('classpath:collections/pa_automation/jsons/payor_auto_approval.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set payor_auto_approval_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set payor_auto_approval_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set payor_auto_approval_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set payor_auto_approval_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post - Payor Auto Approval

@@ -4,8 +4,8 @@ Background:
     Given url base_url
     * def pa_case_body = read('classpath:collections/foundation/jsons/pa_case_creation.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set pa_case_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set pa_case_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set pa_case_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set pa_case_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @regression @foundation @pa_case
     Scenario: Post PA Case

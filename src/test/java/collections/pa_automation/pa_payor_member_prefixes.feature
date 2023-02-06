@@ -4,8 +4,8 @@ Background: Base Url and cofigure json body
     Given url base_url
     * def pa_payor_member_prefixes_body = read('classpath:collections/pa_automation/jsons/pa_payor_member_prefixes.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set pa_payor_member_prefixes_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set pa_payor_member_prefixes_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set pa_payor_member_prefixes_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set pa_payor_member_prefixes_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post - PA Request - Payor Member Prefixes

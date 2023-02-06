@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import com.github.javafaker.Faker;
 import net.minidev.json.JSONObject;
@@ -37,10 +38,14 @@ public class DataGenerator {
         return json;
     }
 
-    public static String getRandomDate(){
+    public static String getRandomDateForCollectionDate(){
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+    }
+
+    public static String getRandomDateForService(){
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
         Faker faker = new Faker();
-        String nowAsISO = df.format(faker.date().past(4,2, TimeUnit.DAYS));
+        String nowAsISO = df.format(faker.date().past(2,1, TimeUnit.DAYS));
         return nowAsISO+getTimeZone(TIME_ZONE_ID); 
     }
 

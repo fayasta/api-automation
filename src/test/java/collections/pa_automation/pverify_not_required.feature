@@ -4,8 +4,8 @@ Background: Base Url and cofigure json body
     Given url base_url
     * def pverify_not_required_body = read('classpath:collections/pa_automation/jsons/pverify_not_required.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set pverify_not_required_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set pverify_not_required_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set pverify_not_required_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set pverify_not_required_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post - PA Request - PVerify - Not Required

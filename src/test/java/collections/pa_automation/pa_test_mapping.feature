@@ -4,8 +4,8 @@ Background: Base Url and cofigure json body
     Given url base_url
     * def pa_test_mapping_body = read('classpath:collections/pa_automation/jsons/pa_test_mapping.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set pa_test_mapping_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set pa_test_mapping_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set pa_test_mapping_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set pa_test_mapping_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post - PA Request - Test Mapping

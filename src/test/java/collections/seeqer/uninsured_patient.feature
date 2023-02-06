@@ -4,8 +4,8 @@ Background: Base Url
     Given url base_url
     * def seeqer_uninsured_patient_body = read('classpath:collections/seeqer/jsons/uninsured_patient.json')
     * def dataGenerator = Java.type('helpers.DataGenerator')
-    * set seeqer_uninsured_patient_body.labOrder.collectionDate = dataGenerator.getRandomDate()
-    * set seeqer_uninsured_patient_body.labOrder.serviceDate = dataGenerator.getRandomDate()
+    * set seeqer_uninsured_patient_body.labOrder.collectionDate = dataGenerator.getRandomDateForCollectionDate()
+    * set seeqer_uninsured_patient_body.labOrder.serviceDate = dataGenerator.getRandomDateForService()
 
     @post-precondition
     Scenario: Post SeeQer Uninsured Patient
