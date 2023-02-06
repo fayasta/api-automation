@@ -13,7 +13,7 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
   * def primaryInsuranceSchema = ({"insuranceName":"#string","groupId":"#string","planId":"#string","memberId":"##string"})
   * def labOrderSchema = ({"labOrderId":"#string","collectionType":"#string","collectionDate":"#present","serviceDate":"#present","accessionDate":"#string","icd10Codes":"#array"})
   * def verifiedInsuranceSchema = ({"insuranceId":"#string","insuranceName":"#string","memberId":"#string"})
-  * def resultsSchema = ({"status":"#string","substatus":"##string","verifiedInsurance":"#(verifiedInsuranceSchema)","authorizedCptCodes":"##array","coverageActive": "##boolean","copay": "##string", "coinsurance": "##number","effectiveDate": "##string", "inNetwork": "##boolean", "paRequired": "##boolean", "maxOutOfPocketRemaining": "##string", "deductibleRemaining": "##string","cptCodeDetails":"##array","estimatedTotalPatientResponsibility": "##string"})
+  * def resultsSchema = ({"status":"#string","substatus":"##string","verifiedInsurance":"##(verifiedInsuranceSchema)","authorizedCptCodes":"##array","coverageActive": "##boolean","copay": "##string", "coinsurance": "##number","effectiveDate": "##string", "inNetwork": "##boolean", "paRequired": "##boolean", "maxOutOfPocketRemaining": "##string", "deductibleRemaining": "##string","cptCodeDetails":"##array","estimatedTotalPatientResponsibility": "##string"})
   * def response = __arg
   * match response == 
     """
@@ -26,7 +26,7 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
             "labId":"#string",
             "labName":"#string",
             "labClinicId":"#string",
-            "notes":"#string",
+            "notes":"##string",
             "createdAt":"#string",
             "postServiceReview":"#boolean",
             "patient":'#object',
