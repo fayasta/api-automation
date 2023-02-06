@@ -31,5 +31,5 @@ Background: Base Url
         Then assert responseStatus == 200
         * def validate_schema = call read("classpath:feature_helpers/schema_get_case_id.feature") response
         And match response.closed == true
-        And match jsonData.results.coverageActive == true
-        And match jsonData.results.estimatedTotalPatientResponsibility == "$323.00" 
+        And match response.results.coverageActive == true
+        And match response.results.estimatedTotalPatientResponsibility == "$323.00" 

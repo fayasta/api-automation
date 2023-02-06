@@ -10,10 +10,10 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
   * def providerSchema = ({"externalProviderId":"# string","practiceName":"#string","firstName":"#string","lastName":"#string","npi":"#string","phoneNumber":"#string","faxNumber":"#string"})
   * def clinicSchema = ({"clinicId":"#string","optumClinicName":"##string","clinicName":"#string"})
   * def testSchema = ({"testNames":"#array","optumTestNames":"#array","testIdentifiers":"#array","cptCodes":"#array","testType":"#string"})
-  * def primaryInsuranceSchema = ({"insuranceName":"#string","groupId":"#string","planId":"#string","memberId":"#string"})
+  * def primaryInsuranceSchema = ({"insuranceName":"#string","groupId":"#string","planId":"#string","memberId":"##string"})
   * def labOrderSchema = ({"labOrderId":"#string","collectionType":"#string","collectionDate":"#present","serviceDate":"#present","accessionDate":"#string","icd10Codes":"#array"})
   * def verifiedInsuranceSchema = ({"insuranceId":"#string","insuranceName":"#string","memberId":"#string"})
-  * def resultsSchema = ({"status":"#string","substatus":"##string","verifiedInsurance":"#(verifiedInsuranceSchema)","authorizedCptCodes":"#array","coverageActive": "##boolean","copay": "##string", "coinsurance": "##number","effectiveDate": "##string", "inNetwork": "##bolean", "paRequired": "##boolean", "maxOutOfPocketRemaining": "##string", "deductibleRemaining": "##string","cptCodeDetails":"##array","estimatedTotalPatientResponsibility": "##string"})
+  * def resultsSchema = ({"status":"#string","substatus":"##string","verifiedInsurance":"#(verifiedInsuranceSchema)","authorizedCptCodes":"##array","coverageActive": "##boolean","copay": "##string", "coinsurance": "##number","effectiveDate": "##string", "inNetwork": "##boolean", "paRequired": "##boolean", "maxOutOfPocketRemaining": "##string", "deductibleRemaining": "##string","cptCodeDetails":"##array","estimatedTotalPatientResponsibility": "##string"})
   * def response = __arg
   * match response == 
     """
