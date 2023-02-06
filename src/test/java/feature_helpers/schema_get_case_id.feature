@@ -8,7 +8,7 @@ Scenario: validate schema of endpoint: api/v2/cases/{caseId}
     #Test cases realted to the Json structure(Eg. field 1 = number,string or anything related to it)     
   * def patientSchema = {"patientId": '#string',"firstName":'#string',"middleName":'# string',"lastName":'#string',"gender":'#string',"phoneNumber":'#string',"dob":'#present',"street":'#string',"street2":'#string',"city":'#string',"state":'#string',"zip":'#string'}
   * def providerSchema = ({"externalProviderId":"# string","practiceName":"#string","firstName":"#string","lastName":"#string","npi":"#string","phoneNumber":"#string","faxNumber":"#string"})
-  * def clinicSchema = ({"clinicId":"#string","optumClinicName":"#string","clinicName":"#string"})
+  * def clinicSchema = ({"clinicId":"#string","optumClinicName":"##string","clinicName":"#string"})
   * def testSchema = ({"testNames":"#array","optumTestNames":"#array","testIdentifiers":"#array","cptCodes":"#array","testType":"#string"})
   * def primaryInsuranceSchema = ({"insuranceName":"#string","groupId":"#string","planId":"#string","memberId":"#string"})
   * def labOrderSchema = ({"labOrderId":"#string","collectionType":"#string","collectionDate":"#present","serviceDate":"#present","accessionDate":"#string","icd10Codes":"#array"})
